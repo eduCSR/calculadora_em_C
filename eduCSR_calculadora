@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <math.h> // biblioteca necessaria para potenciacao e raiz quadrada
+
+int
+main ()
+{
+  char opcao; //declaracao da variavel responsavel pela escolha da operacao
+  float num1, num2; // declaracao da variavel dos algarismos
+
+  printf ("Escolha uma operacao matematica:\n\n");
+  printf ("'a'-Adicao\n's'-Subtracao\n'm'-Multiplicacao\n'd'-Divisao\n");
+  printf ("'p'-Potenciacao\n'r'-Raiz Quadrada\n");
+  printf ("Aperte ENTER para sair\n\n");
+  scanf ("%c", &opcao); //escolha da operacao pelo usuario
+
+  switch (opcao)
+    {
+    case 'a':
+      printf ("Adicao\n");
+      printf ("Digite 2 numeros:\n");
+      scanf ("%f%f", &num1, &num2); // escolha dos numeros
+      printf ("Soma = %f", num1 + num2); // soma dos numeros digitados
+      break;
+
+    case 's':
+      printf ("Subtracao\n");
+      printf ("Digite 2 numeros:\n");
+      scanf ("%f%f", &num1, &num2); //escolha dos numeros
+      printf ("Substracao = %f", num1 - num2); //subtracao dos numeros digitados
+      break;
+
+    case 'm':
+      printf ("Multiplicacao\n");
+      printf ("Digite 2 numeros:\n");
+      scanf ("%f%f", &num1, &num2); // escolha dos numeros
+      printf ("Multiplicacao = %f", num1 * num2); // produto entre os numeros
+      break;
+
+    case 'd':
+      printf ("Divisao\n");
+      printf ("Digite o numero dividendo:\n");
+      scanf ("%f", &num1); //primeiro, escolha do numero dividendo
+      printf ("Digite o numero divisor:\n");
+      scanf ("%f", &num2); //depois há a escolha do numero divisor
+      while (num2 == 0) // enquanto o dividendo for 0, não é possível continuar
+	{
+	  printf
+	    ("Nao e possivel dividir por zero. Selecione um novo numero:\n");
+	  scanf ("%f", &num2); // escolha do novo dividendo se for selecionado 0
+	}
+      printf ("Divisao = %f", num1 / num2); //resultado da divisao
+      break;
+
+    case 'p':
+      printf ("Potenciacao\n");
+      printf ("Digite o numero base:\n");
+      scanf ("%f", &num1); //escolha do primeiro numero
+      printf ("Digite o numero expoente:\n");
+      scanf ("%f", &num2); //escolha do expoente
+      printf ("Potenciacao = %f", pow (num1, num2)); // resultado da potenciacao
+      break;
+
+    case 'r':
+      printf ("Raiz Quadrada\n");
+      printf ("Digite o numero:\n");
+      scanf ("%f", &num1); //escolha do valor desejado
+      printf ("Raiz Quadrada= %f", (sqrt (num1))); // resultado da raiz quadrada
+      break;
+
+    default:
+      printf ("Saindo..."); // apertando-se ENTER no menu, nenhuma operacao é realizada
+      break;
+    }
+
+  return 0;
+}
